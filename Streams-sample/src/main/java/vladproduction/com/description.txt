@@ -1,0 +1,48 @@
+1) Predicate
+test(object)->boolean
+
+2) Function
+apply(Object1)->Object2
+
+BiFunction
+apply(t1, t2)->result
+
+3) Supplier
+get(Object)->
+
+4) Consumer
+accept()->Object
+
+5) Optional
+if we do no want NullPointer
+Optional.isPresent() - boolean
+if return true --> optional.get(); - return our object
+BUT it is not cool, because we could do it earlier by using if statement
+
+The cool thing about Optional is that it can provide an alternative(default value) in case if optional
+will be empty;
+otherwise we can throw Exception;
+
+---------------------------------
+Stream:
+1) filter(Predicate)
+2) map(Function)
+3) forEach(Consumer)
+4) (Supplier)
+
+Terminal Operations:
+1) count() - long
+2) forEach() - void
+3) findAny() - Optional<Player>
+4) findFirst() - Optional<Player>
+5) collect() - Collection
+List<Player> listPlayers = Stream.of(p1,p2,p3,p4,p5).collect(Collectors.toList());
+
+
+Intermediate operations
++1) filter
++2) peek
+3) map
+4) flatMap
+5) limit
+6) skip
