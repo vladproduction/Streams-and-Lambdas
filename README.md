@@ -1,5 +1,6 @@
 # Streams-and-Lambdas
-**This repository is a collection of projects associated to Streams and Lambdas;  Concise, functional-style code for processing collections of data;**
+**This repository is a collection of projects associated to Streams and Lambdas;  
+Concise, functional-style code for processing collections of data;**
 ##
 
 What is streams in Java?
