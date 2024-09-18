@@ -1,6 +1,7 @@
-# Streams-Lambdas
-Concise, functional-style code for processing collections of data
-______________________________________________________________________
+# Streams-and-Lambdas
+**This repository is a collection of projects associated to Streams and Lambdas;  Concise, functional-style code for processing collections of data;**
+##
+
 What is streams in Java?
 
 In Java, a stream is a sequence of elements that can be processed in a functional programming style. 
@@ -13,11 +14,11 @@ Streams can be used with a variety of data sources, including collections, array
 
 The Stream API provides two types of operations:
 
-	1-intermediate:
+	* intermediate:
 Intermediate operations allow you to transform or filter the elements of a stream and return a new stream. 
 Some commonly used intermediate operations include filter, map, sorted, and distinct.
 
-	2-terminal operations: 
+	* terminal operations: 
 Terminal operations, on the other hand, produce a result or a side-effect. They trigger the processing of the elements and the 
 termination of the stream. Examples of terminal operations include forEach, collect, reduce, and count.
 
