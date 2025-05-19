@@ -1,0 +1,92 @@
+Streams and lambdas are key features introduced in Java 8 that enable functional programming paradigms, making your code more expressive and easier to work with when handling collections of data. Here’s an overview of both concepts, along with examples to illustrate their usage.
+
+1. Lambdas
+Lambdas are a way to provide a clear and concise syntax for writing anonymous methods (functions) in Java. They allow you to express instances of single-method interfaces (functional interfaces) using an expression.
+
+Syntax
+The basic syntax of a lambda expression is:
+
+java
+
+(parameters) -> expression
+If the lambda contains multiple statements, it can be enclosed in curly braces:
+
+java
+
+(parameters) -> {
+    // statements
+}
+Example of Lambdas
+Here’s an example demonstrating the use of lambdas in Java:
+
+java
+
+import java.util.Arrays;
+import java.util.List;
+
+public class LambdaExample {
+    public static void main(String[] args) {
+        List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David");
+
+        // Using a lambda expression to print each name
+        names.forEach(name -> System.out.println(name));
+        
+        // Using a lambda to filter and print names that start with "A"
+        names.stream()
+             .filter(name -> name.startsWith("A"))
+             .forEach(name -> System.out.println(name));
+    }
+}
+2. Streams
+Streams are a new abstraction introduced in Java 8 that allow you to process sequences of elements (e.g., collections) in a functional style. A stream is not a data structure, but rather a view of a data structure that allows for processing through a pipeline of operations.
+
+Key Features of Streams:
+They do not modify the underlying data structure.
+They can be created from collections, arrays, or I/O channels.
+They support a variety of functional operations like filter, map, reduce, etc.
+Example of Streams
+Here’s an example illustrating the use of streams:
+
+java
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class StreamExample {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        // Using streams to filter even numbers, square them, and collect them into a list
+        List<Integer> evenSquares = numbers.stream()
+                                            .filter(n -> n % 2 == 0) // Keep only even numbers
+                                            .map(n -> n * n)         // Square each number
+                                            .collect(Collectors.toList()); // Collect the results into a list
+        
+        System.out.println(evenSquares); // Output: [4, 16, 36, 64, 100]
+    }
+}
+Combining Streams and Lambdas
+You can effectively combine streams and lambdas to perform complex data manipulations concisely. Here’s a more complex example that demonstrates chaining multiple operations:
+
+java
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.OptionalDouble;
+
+public class CombinedExample {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        
+        // Calculate the average of the squares of even numbers
+        OptionalDouble average = numbers.stream()
+                                         .filter(n -> n % 2 == 0) // Filter even numbers
+                                         .map(n -> n * n)         // Square them
+                                         .average();              // Calculate average
+        
+        average.ifPresent(System.out::println); // Output: 38.0
+    }
+}
+Conclusion
+The introduction of streams and lambdas in Java 8 allows for a more functional style of programming, making code more readable and maintainable. Streams enable powerful data manipulation capabilities and concise operations on collections, while lambdas simplify the syntax. Together, they represent a significant improvement in Java for processing data collections, fitting well into modern programming practices.
